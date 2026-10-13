@@ -7,7 +7,7 @@ const nextConfig = {
     "@solana/wallet-adapter-react-ui",
     "@solana/wallet-adapter-wallets"
   ],
-  webpack: (config) => {
+  webpack: (config, { webpack }) => {
     // Explicit injection of Buffer for zero-copy memory parsing in the browser
     config.resolve.fallback = {
       ...config.resolve.fallback,
@@ -15,7 +15,7 @@ const nextConfig = {
     };
     
     config.plugins.push(
-      new config.webpack.ProvidePlugin({
+      new webpack.ProvidePlugin({
         Buffer: ['buffer', 'Buffer'],
       })
     );
