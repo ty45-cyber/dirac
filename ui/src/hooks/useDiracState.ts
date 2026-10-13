@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useConnection } from '@solana/wallet-adapter-react';
 import { PublicKey } from '@solana/web3.js';
-import { parseDiracState, DiracStateUI } from '../utils/diracParser';
+import { parseDiracState, DiracStateUI } from './diracParser';
 import { Buffer } from 'buffer';
 
 /// 1. Real-Time Memory Mutation Hook
