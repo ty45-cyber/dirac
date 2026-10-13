@@ -1,0 +1,20 @@
+[package]
+name = "dirac-protocol"
+version = "0.1.0"
+edition = "2021"
+description = "Zero-copy Avellaneda-Stoikov Market Maker"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+solana-program = "=1.18.0" # Lock version for deterministic builds
+bytemuck = { version = "1.14.0", features = ["derive"] }
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+# Forced safety: Overrides standard release behavior to trap mathematical exploits
+overflow-checks = true
